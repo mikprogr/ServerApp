@@ -5,7 +5,7 @@ Przed uruchomieniem aplikacji należy wdrożyć certyfikat X.509.
 Wdrożenie i generowanie certyfikatu należy wykonać z poziomu PowerShell z uprawnieniami administratora.
 W tym celu należy wykonać polecenia:
 
-$certName = "CN=TestCert"
+$certName = "CN=TestCert" //Tutaj należy ustawić nazwę certyfikatu
 $pfxPassword = ConvertTo-SecureString -String "TwojeHaslo123!" -Force -AsPlainText
 $pfxPath = "C:\Certyfikaty\TestCert.pfx"
 
@@ -39,6 +39,9 @@ Ważne jest, aby to robić na serwerze. Pomoże to uniknąć ewentualnych proble
 
 W drugiej kolejności, na serwerze należy zaimplementować regułę wychodzącą. W tym celu należy podać numer portu (12345) oraz wskazać, że ruch ma 
 się odbywać w obie strony.
+
+Adresację IPv4 serwera ustawić na IP:192.168.1.120 z maską 255.255.255.0, brama domyślna 192.168.1.120, a 1 DNS na 127.0.0.1.
+Przed uruchomieniem ServerApp, w kodzie należy podać ścieżkę do certyfikatu z rozszerzeniem .pfx.  
 
 Następnie uruchamiamy aplikacje. W pierwszej kolejności należy nacisnąć przycisk "Start" w aplikacji ServerApp w celu inicjalizacji połączenia.
 Dalej wpisujemy dowolny tekst w aplikacji ClientApp w miejscu przeznaczonym do wysyłania wiadomości i naciskamy przycisk "Wyślij". Warto zwrócić
